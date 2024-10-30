@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Pet</title>
 </head>
 <body>
-    <h1>{{ pet.nome_pet if pet else 'Cadastrar Novo Pet' }}</h1>
+    <h1>Cadastro de Pet</h1>
     <form method="POST">
         <label for="nome_pet">Nome do Pet:</label>
-        <input type="text" name="nome_pet" required value="{{ pet.nome_pet if pet else '' }}"><br>
+        <input type="text" id="nome_pet" name="nome_pet" required><br>
 
         <label for="nome_dono">Nome do Dono:</label>
-        <input type="text" name="nome_dono" required value="{{ pet.nome_dono if pet else '' }}"><br>
+        <input type="text" id="nome_dono" name="nome_dono" required><br>
 
         <label for="endereco">Endereço:</label>
-        <input type="text" name="endereco" required value="{{ pet.endereco if pet else '' }}"><br>
+        <input type="text" id="endereco" name="endereco" required><br>
 
         <label for="telefone">Telefone:</label>
-        <input type="text" name="telefone" required value="{{ pet.telefone if pet else '' }}"><br>
+        <input type="text" id="telefone" name="telefone" required><br>
 
-        <label for="foto">Foto URL:</label>
-        <input type="text" name="foto" value="{{ pet.foto if pet else '' }}"><br>
+        <label for="foto">Foto (URL):</label>
+        <input type="text" id="foto" name="foto"><br>
 
-        <label for="info_extra">Informações Extras:</label>
-        <textarea name="info_extra">{{ pet.info_extra if pet else '' }}</textarea><br>
+        <label for="info_extra">Informações Extras:</label><br>
+        <textarea id="info_extra" name="info_extra"></textarea><br>
 
-        <input type="submit" value="{{ 'Atualizar' if pet else 'Cadastrar' }}">
+        <button type="submit">Salvar</button>
     </form>
-    <br>
-    <a href="{{ url_for('index') }}">Voltar</a>
 </body>
 </html>
