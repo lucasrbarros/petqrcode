@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <title>Painel Administrativo</title>
+</head>
+<body>
+    <h1>Painel Administrativo</h1>
+    <h2>Lista de Pets</h2>
+    <ul>
+        {% for pet in pets %}
+            <li>{{ pet.nome_pet }} - <a href="{{ url_for('ativar_pet', pet_id=pet.id) }}">Ativar</a></li>
+        {% endfor %}
+    </ul>
+    <p><a href="{{ url_for('index') }}">Voltar para a página inicial</a></p>
+</body>
+</html>

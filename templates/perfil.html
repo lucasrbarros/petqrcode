@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Pet</title>
+</head>
+<body>
+    <h1>Perfil do Pet: {{ pet.nome_pet }}</h1>
+    <p><strong>Nome do Dono:</strong> {{ pet.nome_dono }}</p>
+    <p><strong>Endereço:</strong> {{ pet.endereco }}</p>
+    <p><strong>Telefone:</strong> {{ pet.telefone }}</p>
+    <p><strong>Foto:</strong> <img src="{{ pet.foto }}" alt="Foto do Pet" width="200"></p>
+    <p><strong>Informações Extras:</strong> {{ pet.info_extra }}</p>
+    <p><strong>Status:</strong> {{ 'Ativo' if pet.ativo else 'Inativo' }}</p>
+    
+    <br>
+    <a href="{{ url_for('cadastrar', pet_id=pet.id) }}">Editar Cadastro</a>
+    <br>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>

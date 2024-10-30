@@ -1,0 +1,4 @@
+Flask==2.2.5
+Flask-SQLAlchemy==2.5.1
+SQLAlchemy==2.0.19
+qrcode==7.3.1
