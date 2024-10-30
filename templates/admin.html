@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Administrativa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Área Administrativa</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome do Pet</th>
+                    <th>Nome do Dono</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pet in pets %}
+                <tr>
+                    <td>{{ pet.id }}</td>
+                    <td>{{ pet.nome_pet }}</td>
+                    <td>{{ pet.nome_dono }}</td>
+                    <td>{{ 'Ativo' if pet.ativo else 'Inativo' }}</td>
+                    <td>
+                        <a href="{{ url_for('perfil', pet_id=pet.id) }}">Ver</a>
+                        <a href="{{ url_for('cadastrar', pet_id=pet.id) }}">Editar</a>
+                        {% if not pet.ativo %}
+                            <a href="{{ url_for('ativar_pet', pet_id=pet.id) }}">Ativar</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ url_for('index') }}" class="button">Voltar para o Início</a>
+    </div>
+</body>
+</html>

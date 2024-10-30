@@ -82,6 +82,13 @@ def perfil(pet_id):
         return redirect(url_for('cadastrar', pet_id=pet_id))
     return render_template('perfil.html', pet=pet)
 
+# Rota para a área administrativa
+@app.route('/admin')
+def admin():
+    pets = Pet.query.all()  # Obtém todos os pets cadastrados
+    return render_template('admin.html', pets=pets)
+
+
 @app.route('/admin/ativar/<int:pet_id>')
 def ativar_pet(pet_id):
     pet = Pet.query.get(pet_id)
