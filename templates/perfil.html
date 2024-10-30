@@ -2,14 +2,33 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Pet</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Perfil de {{ pet.nome_pet }}</h1>
-    <p><strong>Nome do Dono:</strong> {{ pet.nome_dono }}</p>
-    <p><strong>Endereço:</strong> {{ pet.endereco }}</p>
-    <p><strong>Telefone:</strong> {{ pet.telefone }}</p>
-    <p><strong>Foto:</strong> <img src="{{ pet.foto }}" alt="Foto do Pet" width="200"></p>
-    <p><strong>Informações Extras:</strong> {{ pet.info_extra }}</p>
+    <div class="container">
+        <h1>Perfil do Pet - {{ pet.nome_pet }}</h1>
+
+        <div class="pet-profile">
+            <div class="image-container">
+                {% if pet.foto %}
+                    <img src="{{ url_for('static', filename='uploads/' + pet.foto) }}" 
+                         alt="Foto do Pet" width="300">
+                {% else %}
+                    <p>Sem foto disponível</p>
+                {% endif %}
+            </div>
+
+            <div class="pet-info">
+                <p><strong>Nome do Dono:</strong> {{ pet.nome_dono }}</p>
+                <p><strong>Endereço:</strong> {{ pet.endereco }}</p>
+                <p><strong>Telefone:</strong> {{ pet.telefone }}</p>
+                <p><strong>Informações Extras:</strong> {{ pet.info_extra or 'Nenhuma informação extra fornecida.' }}</p>
+            </div>
+
+            <a href="{{ url_for('cadastrar', pet_id=pet.id) }}" class="button">Editar Cadastro</a>
+        </div>
+    </div>
 </body>
 </html>
