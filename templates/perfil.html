@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Pet</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
     <div class="container">
@@ -27,7 +27,7 @@
                 <p><strong>Informações Extras:</strong> {{ pet.info_extra or 'Nenhuma informação extra fornecida.' }}</p>
             </div>
 
-            <a href="{{ url_for('cadastrar', pet_id=pet.id) }}" class="button">Editar Cadastro</a>
+            <!-- <a href="{{ url_for('cadastrar', pet_id=pet.id) }}" class="button">Editar Cadastro</a> -->
         </div>
     </div>
 </body>
